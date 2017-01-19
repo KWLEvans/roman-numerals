@@ -14,10 +14,16 @@ var denominators = [1000, 500, 100, 50, 10, 5, 1]
 function buildNumeralsArray(num) {
   var numOfEach = [];
   denominators.forEach(function(denominator) {
-    var numOfNum = Math.floor(num/denominator);
-    num = num % (denominator * numOfNum);
-    numOfEach.push(numOfNum);
+    var numOfDenom = Math.floor(num/denominator);
+    console.log("numofnum is: " + numOfDenom);
+    if (numOfDenom) {
+      num = num % (denominator * numOfDenom);
+      numOfEach.push(numOfDenom);
+    } else {
+      numOfEach.push(0);
+    }
   });
+  console.log(numOfEach);
   return numOfEach;
 }
 
